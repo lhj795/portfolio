@@ -1,11 +1,21 @@
-import logo from './logo.svg';
+import Work from './Work'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import TenxFinders from "./10xFinders"
 import './App.css';
-import Base from './Base.js'
 
 function App() {
   return (
-    <Base />
+    <Router>
+        <Switch>
+            <Route path="/" exact component={Work} />
+            <Route path="/10xFinders" exact component={TenxFinders} />
+        </Switch>
+    </Router>
   );
 }
 
 export default App;
+
+
+

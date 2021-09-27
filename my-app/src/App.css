@@ -2,3 +2,8 @@
   font-family: ClarendonBold;
   src: url("fonts/ClarendonBold.otf")  format("opentype");
 }
+
+@font-face {
+  font-family: Monaco;
+  src: url("fonts/Monaco.ttf")  format("truetype");
+}
