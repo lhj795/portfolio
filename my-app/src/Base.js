@@ -1,15 +1,23 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { BrowserRouter, Link } from "react-router-dom";
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
-import { Typography } from '@material-ui/core';
-import { TypographyTheme } from './Styles.js';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
+// import { Typography } from '@material-ui/core';
+// import { TypographyTheme } from './Styles.js';
 
 const useStyles = makeStyles(({
     name: {
         fontFamily: "ClarendonBold",
-        fontSize: "6.75rem",
+        fontSize: (props) => {
+            if (props.selected === "work") {
+                return "6.75rem"
+            } else {
+                return "2.5rem"
+            }
+        },
         color: "#333333",
         marginRight: "2rem",
+        transitionDuration: ".4s",
+        transitionTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
     },
     wrap: {
         margin: "2vw 7vw 0 7vw",
@@ -47,6 +55,7 @@ const useStyles = makeStyles(({
     },
     link: {
         textDecoration: "none",
+        color: "inherit",
     },
 }));
 
@@ -81,7 +90,7 @@ function NavBarItem(props) {
 }
 
 export default function Base(props) {
-    const classes = useStyles();
+    const classes = useStyles(props);
     const [hover, setHover] = useState(false);
     const onHover = (event) => {
         setHover(true);
@@ -93,38 +102,34 @@ export default function Base(props) {
     
     return (
         <div>
-            <BrowserRouter>
-            {/* <ThemeProvider theme={ TypographyTheme }> */}
-                <div className={classes.wrap}>
-                    <div className={classes.nameAndDesc}>
-                        <div className={classes.name}>
-                            nicole
-                        </div>
-                        {/* <Typography variant="body"> */}
-                        <div className={classes.body}>
-                            product designer / ux designer / frontend engineer / food connoisseur <br></br>
-                            rhode island school of design | bfa industrial design 2020 <br></br>
-                            brown university + risd | ma design engineering 2022 <br></br>
-                            designer at 10xfinders <br></br>
-                        </div>
-                        {/* </Typography> */}
+            <div className={classes.wrap}>
+                <div className={classes.nameAndDesc}>
+                    <div className={classes.name}>
+                        nicole
                     </div>
-                    <div className={classes.navBar}>
-                        <Link to="/"><NavBarItem selected={props.selected} href="/">work</NavBarItem></Link>
-                        <Link to="/10xFinders"><NavBarItem selected={props.selected} href="/10xFinders">10xFinders</NavBarItem></Link>
-                        <NavBarItem selected={props.selected} href="/Kozi">Kozi</NavBarItem>
-                        <NavBarItem selected={props.selected} href="/Involv">Involv</NavBarItem>
-                        <NavBarItem selected={props.selected} href="/AMCWorld">AMC World</NavBarItem>
-                        <NavBarItem selected={props.selected} href="Craigslist">Craigslist+</NavBarItem>
-                        <NavBarItem selected={props.selected} href="/Drift">Drift</NavBarItem>
-                        <NavBarItem selected={props.selected} href="/Lolcalyze">Lolcalyze</NavBarItem>
-                        <br></br>
-                        <NavBarItem selected={props.selected} href="/about">about</NavBarItem>
-                        <NavBarItem selected={props.selected} href="/resume">resume</NavBarItem>
+                    {/* <Typography variant="body"> */}
+                    <div className={classes.body}>
+                        product designer / ux designer / frontend engineer / food connoisseur <br></br>
+                        rhode island school of design | bfa industrial design 2020 <br></br>
+                        brown university + risd | ma design engineering 2022 <br></br>
+                        designer at 10xfinders <br></br>
                     </div>
+                    {/* </Typography> */}
                 </div>
-            {/* </ThemeProvider> */}
-            </BrowserRouter>
+                <div className={classes.navBar}>
+                    <Link to="/"><NavBarItem selected={props.selected} href="/">work</NavBarItem></Link>
+                    <NavBarItem selected={props.selected}><Link className={classes.link} to="/10xFinders">10xFinders</Link></NavBarItem>
+                    <NavBarItem selected={props.selected} href="/Kozi">Kozi</NavBarItem>
+                    <NavBarItem selected={props.selected} href="/Involv">Involv</NavBarItem>
+                    <NavBarItem selected={props.selected} href="/AMCWorld">AMC World</NavBarItem>
+                    <NavBarItem selected={props.selected} href="Craigslist">Craigslist+</NavBarItem>
+                    <NavBarItem selected={props.selected} href="/Drift">Drift</NavBarItem>
+                    <NavBarItem selected={props.selected} href="/Lolcalyze">Lolcalyze</NavBarItem>
+                    <br></br>
+                    <NavBarItem selected={props.selected} href="/about">about</NavBarItem>
+                    <NavBarItem selected={props.selected}><Link className={classes.link} to="/resume">resume</Link></NavBarItem>
+                </div>
+            </div>
         </div>
     );
 }

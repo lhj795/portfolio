@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Base2 from './Base2.js'
+import React from "react";
+import Base from './Base.js'
 import { makeStyles } from '@material-ui/core/styles';
 import TenEx from "./image/10xfinders/10xfinders.png";
 import TenLogo from './image/10xfinders/10xLogo.svg'
-import {Link} from "react-router-dom";
-import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Aos from "aos";
 
  const useStyles = makeStyles(({
     box: {
@@ -99,12 +96,12 @@ export default function TenxFinders(props) {
     const classes = useStyles();
     return (
         <div>
-            <Base2 selected={"10xFinders"}/>
+            <Base selected={"10xFinders"}/>
             <div className={classes.tenExBg}/>
             <div className={classes.box}>
-                <img className={classes.tenExBgImg} src={TenEx}/>
+                <img className={classes.tenExBgImg} src={TenEx} alt="10xFinders"/>
                 <div className={classes.content}>
-                    <img src={TenLogo} className={classes.tenLogo}/>
+                    <img src={TenLogo} className={classes.tenLogo} alt="10xFinders"/>
                     <p className={classes.titleText}>
                         Job Recruiting made Faster and Simpler
                     </p>

@@ -4,6 +4,16 @@
 }
 
 @font-face {
+  font-family: ClarendonRegular;
+  src: url("fonts/ClarendonRegular.otf")  format("opentype");
+}
+
+@font-face {
   font-family: Monaco;
   src: url("fonts/Monaco.ttf")  format("truetype");
+}
+
+svg rect {
+  fill: white;
+  mask: URL(#mask);
 }

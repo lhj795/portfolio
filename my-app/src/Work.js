@@ -9,7 +9,6 @@ import Drift from "./image/drift/drift.jpg";
 import Involv from "./image/involv/involv.jpg"
 import Kozi from "./image/kozi/kozi.png";
 import {Link} from "react-router-dom";
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Aos from "aos";
 
@@ -201,13 +200,13 @@ function Card(props) {
     };
     const hoveredStyle = (hover) ? classes.hover : classes.default
 
-    const [zoom, setZoomed] = useState(false);
-    const imageZoom = (event) => {
-        setZoomed(true);
-    };
-    const imageFit = (event) => {
-        setZoomed(false)
-    };
+    // const [zoom, setZoomed] = useState(false);
+    // const imageZoom = (event) => {
+    //     setZoomed(true);
+    // };
+    // const imageFit = (event) => {
+    //     setZoomed(false)
+    // };
     // const zoomedStyle = (zoom) ? classes.cardImgZoomed : classes.cardImg;    
 
     return (
@@ -217,8 +216,8 @@ function Card(props) {
             onMouseLeave={onLeave}
         >
             <img
-                onMouseEnter={imageZoom}
-                onMouseLeave={imageFit}
+                // onMouseEnter={imageZoom}
+                // onMouseLeave={imageFit}
                 className={classes.cardImg}
                 src={props.img}
             />
@@ -249,13 +248,13 @@ function CardSmall(props) {
     };
     const hoveredStyle = (hover) ? classes.hoverSmall : classes.defaultSmall
 
-    const [zoom, setZoomed] = useState(false);
-    const imageZoom = (event) => {
-        setZoomed(true);
-    };
-    const imageFit = (event) => {
-        setZoomed(false)
-    };
+    // const [zoom, setZoomed] = useState(false);
+    // const imageZoom = (event) => {
+    //     setZoomed(true);
+    // };
+    // const imageFit = (event) => {
+    //     setZoomed(false)
+    // };
     // const zoomedStyle = (zoom) ? classes.cardImgZoomed : classes.cardImg;    
 
     return (
@@ -265,8 +264,8 @@ function CardSmall(props) {
             onMouseLeave={onLeave}
         >
             <img
-                onMouseEnter={imageZoom}
-                onMouseLeave={imageFit}
+                // onMouseEnter={imageZoom}
+                // onMouseLeave={imageFit}
                 className={classes.cardImgSmall}
                 src={props.img}
             />
@@ -297,14 +296,14 @@ function CardMedium(props) {
     };
     const hoveredStyle = (hover) ? classes.hover : classes.default
 
-    const [zoom, setZoomed] = useState(false);
-    const imageZoom = (event) => {
-        setZoomed(true);
-    };
-    const imageFit = (event) => {
-        setZoomed(false)
-    };
-    // const zoomedStyle = (zoom) ? classes.cardImgZoomed : classes.cardImg;    
+    // const [zoom, setZoomed] = useState(false);
+    // const imageZoom = (event) => {
+    //     setZoomed(true);
+    // };
+    // const imageFit = (event) => {
+    //     setZoomed(false)
+    // };
+    // // const zoomedStyle = (zoom) ? classes.cardImgZoomed : classes.cardImg;    
 
     return (
         <div
@@ -313,8 +312,8 @@ function CardMedium(props) {
             onMouseLeave={onLeave}
         >
             <img
-                onMouseEnter={imageZoom}
-                onMouseLeave={imageFit}
+                // onMouseEnter={imageZoom}
+                // onMouseLeave={imageFit}
                 className={classes.cardImgMedium}
                 src={props.img}
             />
